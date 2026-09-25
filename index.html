@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mariage Amir & Lylia</title>
 
-<!-- Open Graph Meta Tags for Instagram/Social Previews -->
+<!-- Instagram / Social Media Preview Tags -->
 <meta property="og:title" content="Mariage Amir & Lylia" />
 <meta property="og:description" content="Vous êtes conviés à la célébration de notre mariage le Vendredi 29 Janvier 2027." />
 <meta property="og:image" content="https://YOUR-DOMAIN.com/image_27da09.jpg" />
@@ -14,6 +14,12 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
+  :root {
+    /* Adjusted to make the envelope smaller */
+    --env-w: min(85vw, 450px);
+    --env-h: min(55vh, 300px);
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
@@ -65,8 +71,8 @@
   /* 3D Envelope Stage */
   .stage {
     position: relative;
-    width: min(92vw, 540px);
-    height: min(65vh, 370px);
+    width: var(--env-w);
+    height: var(--env-h);
     z-index: 10;
   }
 
@@ -82,16 +88,13 @@
     border-radius: 4px;
   }
 
-  /* Card featuring your uploaded background image */
+  /* Card */
   .card {
     position: absolute; top: 15px; left: 4%; width: 92%; height: 90%;
-    
-    /* Using your specified image file */
     background: url('image_27da09.jpg') center/cover no-repeat;
-    background-color: #fffcf8; /* Fallback color */
-    
+    background-color: #fffcf8;
     border-radius: 2px;
-    padding: 35px 25px;
+    padding: 25px 15px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     z-index: 2;
@@ -102,14 +105,14 @@
 
   .names {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
     background: linear-gradient(75deg, #996515 0%, #f5d77f 30%, #b38728 50%, #fdf5b7 70%, #996515 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.2;
     filter: drop-shadow(1px 2px 1px rgba(0,0,0,0.15));
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .intro, .details {
@@ -117,47 +120,47 @@
     text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.9);
   }
 
-  .intro { font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase; }
-  .details { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.7; }
+  .intro { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
+  .details { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; line-height: 1.6; }
   
   .details .date {
-    font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700;
+    font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700;
     color: #611111; margin-top: 6px; display: block; letter-spacing: 1px;
   }
 
   .map-btn {
-    display: inline-block; padding: 11px 26px; margin-top: 10px;
+    display: inline-block; padding: 10px 22px; margin-top: 5px;
     background: linear-gradient(135deg, #d4af37, #f3e5ab, #b8860b);
-    color: #2b0b0b; text-decoration: none; font-size: 0.82rem; font-weight: 700;
+    color: #2b0b0b; text-decoration: none; font-size: 0.75rem; font-weight: 700;
     letter-spacing: 1.5px; text-transform: uppercase; border-radius: 3px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2), inset 1px 1px 1px rgba(255,255,255,0.6);
     pointer-events: auto; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 10;
   }
   .map-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 1px 1px 1px rgba(255,255,255,0.8); }
 
-  /* Realistic Envelope Flaps */
+  /* Realistic Envelope Flaps scaled with CSS Variables */
   .pocket-bottom {
     position: absolute; bottom: 0; left: 0; width: 0; height: 0;
-    border-left: calc(min(92vw, 540px) / 2) solid transparent;
-    border-right: calc(min(92vw, 540px) / 2) solid transparent;
-    border-bottom: calc(min(65vh, 370px) * 0.58) solid #631717;
+    border-left: calc(var(--env-w) / 2) solid transparent;
+    border-right: calc(var(--env-w) / 2) solid transparent;
+    border-bottom: calc(var(--env-h) * 0.58) solid #631717;
     z-index: 4; filter: drop-shadow(0 -3px 4px rgba(0,0,0,0.2));
   }
 
   .pocket-side {
     position: absolute; top: 0; width: 0; height: 0;
-    border-top: calc(min(65vh, 370px) / 2) solid transparent;
-    border-bottom: calc(min(65vh, 370px) / 2) solid transparent;
+    border-top: calc(var(--env-h) / 2) solid transparent;
+    border-bottom: calc(var(--env-h) / 2) solid transparent;
     z-index: 3;
   }
-  .pocket-left { left: 0; border-left: calc(min(92vw, 540px) * 0.54) solid #731b1b; filter: drop-shadow(3px 0 4px rgba(0,0,0,0.15)); }
-  .pocket-right { right: 0; border-right: calc(min(92vw, 540px) * 0.54) solid #561111; filter: drop-shadow(-3px 0 4px rgba(0,0,0,0.25)); }
+  .pocket-left { left: 0; border-left: calc(var(--env-w) * 0.54) solid #731b1b; filter: drop-shadow(3px 0 4px rgba(0,0,0,0.15)); }
+  .pocket-right { right: 0; border-right: calc(var(--env-w) * 0.54) solid #561111; filter: drop-shadow(-3px 0 4px rgba(0,0,0,0.25)); }
 
   .flap-top {
     position: absolute; top: 0; left: 0; width: 0; height: 0;
-    border-left: calc(min(92vw, 540px) / 2) solid transparent;
-    border-right: calc(min(92vw, 540px) / 2) solid transparent;
-    border-top: calc(min(65vh, 370px) * 0.58) solid #7a1d1d;
+    border-left: calc(var(--env-w) / 2) solid transparent;
+    border-right: calc(var(--env-w) / 2) solid transparent;
+    border-top: calc(var(--env-h) * 0.58) solid #7a1d1d;
     transform-origin: top; transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 5; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
   }
@@ -178,7 +181,7 @@
   .stage.open .flap-top { transform: rotateX(180deg); z-index: 1; }
   .stage.open .wax-seal { opacity: 0; }
   .stage.open .card {
-    transform: translateY(-230px) scale(1.4) rotateX(2deg); 
+    transform: translateY(-230px) scale(1.6) rotateX(2deg); 
     z-index: 20;
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.6), 0 15px 20px rgba(0, 0, 0, 0.4);
     pointer-events: auto;
@@ -223,7 +226,7 @@
     <div class="envelope-back"></div>
 
     <div class="card" id="card">
-      <div class="intro">Avec la bénédiction de leurs parents</div>
+      <div class="intro">Entourés de l'amour de leurs familles</div>
       <div class="names">Amir & Lylia</div>
       <div class="details">
         Ont la joie de vous convier à la célébration de leur mariage
