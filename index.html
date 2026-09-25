@@ -4,159 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mariage Amir & Lylia</title>
+
+<!-- Open Graph Meta Tags for Instagram/Social Previews -->
+<meta property="og:title" content="Mariage Amir & Lylia" />
+<meta property="og:description" content="Vous êtes conviés à la célébration de notre mariage le Vendredi 29 Janvier 2027." />
+<meta property="og:image" content="https://YOUR-DOMAIN.com/image_27da09.jpg" />
+<meta property="og:url" content="https://YOUR-DOMAIN.com" />
+<meta property="og:type" content="website" />
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     min-height: 100vh;
-    background: #09020a;
+    background: radial-gradient(circle at center, #2e0808 0%, #110000 70%, #000000 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     font-family: 'Cinzel', serif;
-    perspective: 1200px;
-  }
-
-  body::before,
-  body::after {
-    content: '';
-    position: fixed;
-    inset: -20%;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  body::before {
-    background:
-      radial-gradient(ellipse at 20% 20%, rgba(119, 35, 72, 0.6), transparent 35%),
-      radial-gradient(ellipse at 80% 75%, rgba(183, 112, 35, 0.32), transparent 34%),
-      radial-gradient(ellipse at 55% 45%, rgba(68, 18, 54, 0.8), transparent 50%),
-      #09020a;
-    animation: sky-shift 18s ease-in-out infinite alternate;
-  }
-
-  body::after {
-    background: radial-gradient(ellipse at center, transparent 35%, rgba(3, 0, 5, 0.78) 100%);
-    animation: vignette-breathe 8s ease-in-out infinite alternate;
-  }
-
-  @keyframes sky-shift {
-    0% { transform: translate3d(-3%, -2%, 0) scale(1); filter: hue-rotate(0deg); }
-    50% { transform: translate3d(2%, 2%, 0) scale(1.08); }
-    100% { transform: translate3d(4%, -1%, 0) scale(1.02); filter: hue-rotate(18deg); }
-  }
-
-  @keyframes vignette-breathe {
-    from { opacity: 0.65; }
-    to { opacity: 0.95; }
-  }
-
-  .moon-glow {
-    position: fixed;
-    width: min(42vw, 430px);
-    aspect-ratio: 1;
-    top: -18%;
-    right: -10%;
-    border-radius: 50%;
-    background: radial-gradient(circle at 36% 36%, #fff9df 0 2%, #f5d995 9%, rgba(235, 175, 92, 0.2) 34%, transparent 70%);
-    filter: blur(1px);
-    opacity: 0.72;
-    z-index: 1;
-    pointer-events: none;
-    animation: moon-float 10s ease-in-out infinite alternate;
-  }
-
-  @keyframes moon-float {
-    to { transform: translate(-22px, 18px) scale(1.08); opacity: 0.9; }
-  }
-
-  .starfield {
-    position: fixed;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .star {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: #fff7d6;
-    box-shadow: 0 0 8px 2px rgba(255, 215, 133, 0.7);
-    animation: twinkle var(--twinkle-duration) ease-in-out infinite alternate;
-  }
-
-  @keyframes twinkle {
-    from { transform: scale(0.5); opacity: 0.18; }
-    to { transform: scale(1.8); opacity: 0.95; }
+    perspective: 1500px;
   }
 
   /* Bokeh background */
-  .bokeh-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 3;
-  }
+  .bokeh-container { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
   .bokeh {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, rgba(212, 175, 55, 0) 70%);
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0) 70%);
     animation: drift 14s infinite ease-in-out alternate;
-    filter: blur(1px);
   }
   @keyframes drift {
-    from { transform: translateY(0) scale(0.9); opacity: 0.3; }
-    to { transform: translateY(-80px) scale(1.2); opacity: 0.7; }
+    from { transform: translateY(0) scale(0.9); opacity: 0.2; }
+    to { transform: translateY(-80px) scale(1.2); opacity: 0.6; }
   }
 
-  /* --- Visible Flying Birds --- */
+  /* Flying Birds */
   .bird-container {
-    position: fixed;
-    z-index: 6;
-    pointer-events: none;
-    animation: fly-across infinite linear;
-    opacity: 0;
+    position: fixed; z-index: 5; pointer-events: none;
+    animation: fly-across infinite linear; opacity: 0;
   }
-  
   .bird-1 { top: 15%; animation-duration: 16s; animation-delay: 0s; transform: scale(1); }
   .bird-2 { top: 30%; animation-duration: 20s; animation-delay: 4s; transform: scale(0.8); }
   .bird-3 { top: 10%; animation-duration: 22s; animation-delay: 8s; transform: scale(1.2); }
-  .bird-4 { top: 25%; animation-duration: 18s; animation-delay: 12s; transform: scale(0.9); }
 
   @keyframes fly-across {
     0% { left: -10%; transform: translateY(5vh); opacity: 0; }
-    5% { opacity: 0.9; }
-    95% { opacity: 0.9; }
+    5% { opacity: 0.8; }
+    95% { opacity: 0.8; }
     100% { left: 110%; transform: translateY(-15vh); opacity: 0; }
   }
 
-  .bird-svg {
-    width: 60px;
-    height: 50px;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
-  }
-  
-  .left-wing, .right-wing {
-    transform-origin: 25px 20px;
-  }
+  .bird-svg { width: 60px; height: 50px; filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5)); }
+  .left-wing, .right-wing { transform-origin: 25px 20px; }
   .left-wing { animation: flap-left 0.4s infinite alternate ease-in-out; }
   .right-wing { animation: flap-right 0.4s infinite alternate ease-in-out; }
+  @keyframes flap-left { from { transform: rotate(0deg); } to { transform: rotate(-45deg) translateY(-3px); } }
+  @keyframes flap-right { from { transform: rotate(0deg); } to { transform: rotate(45deg) translateY(-3px); } }
 
-  @keyframes flap-left {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-45deg) translateY(-3px); }
-  }
-  @keyframes flap-right {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(45deg) translateY(-3px); }
-  }
-
-  /* Envelope Stage */
+  /* 3D Envelope Stage */
   .stage {
     position: relative;
     width: min(92vw, 540px);
@@ -165,38 +71,31 @@
   }
 
   .envelope {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+    position: relative; width: 100%; height: 100%; cursor: pointer;
     transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.7)); 
   }
 
   .envelope-back {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #4d1010, #340707);
-    border-radius: 8px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #5c1616 0%, #3a0808 100%);
+    border-radius: 4px;
   }
 
-  /* Invitation Letter */
+  /* Card featuring your uploaded background image */
   .card {
-    position: absolute;
-    top: 15px;
-    left: 4%;
-    width: 92%;
-    height: 90%;
-    background: #fffdf9;
-    border: 2px solid #d4af37;
-    border-radius: 6px;
+    position: absolute; top: 15px; left: 4%; width: 92%; height: 90%;
+    
+    /* Using your specified image file */
+    background: url('image_27da09.jpg') center/cover no-repeat;
+    background-color: #fffcf8; /* Fallback color */
+    
+    border-radius: 2px;
     padding: 35px 25px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 15px;
     transition: transform 1.3s cubic-bezier(0.25, 1, 0.3, 1), z-index 0.2s 0.6s, box-shadow 1.3s;
     pointer-events: none;
   }
@@ -204,167 +103,99 @@
   .names {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(2.4rem, 6vw, 3.8rem);
-    background: linear-gradient(45deg, #996515, #f5d77f, #b38728, #fdf5b7);
+    background: linear-gradient(75deg, #996515 0%, #f5d77f 30%, #b38728 50%, #fdf5b7 70%, #996515 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.2;
-    margin: 8px 0;
+    filter: drop-shadow(1px 2px 1px rgba(0,0,0,0.15));
+    margin-bottom: 10px;
   }
 
-  .intro {
-    font-size: 0.82rem;
-    letter-spacing: 2px;
-    color: #7a6a58;
-    text-transform: uppercase;
+  .intro, .details {
+    color: #4a3e35;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.9);
   }
 
-  .details {
-    font-family: 'Montserrat', sans-serif;
-    color: #4a3b32;
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
+  .intro { font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase; }
+  .details { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.7; }
+  
   .details .date {
-    font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #7b1818;
-    margin-top: 6px;
-    display: block;
-    letter-spacing: 1px;
+    font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700;
+    color: #611111; margin-top: 6px; display: block; letter-spacing: 1px;
   }
 
   .map-btn {
-    display: inline-block;
-    align-self: center;
-    padding: 11px 26px;
-    background: linear-gradient(45deg, #b8860b, #e6ca65, #b8860b);
-    color: #3b0909;
-    text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    pointer-events: auto;
-    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block; padding: 11px 26px; margin-top: 10px;
+    background: linear-gradient(135deg, #d4af37, #f3e5ab, #b8860b);
+    color: #2b0b0b; text-decoration: none; font-size: 0.82rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; border-radius: 3px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2), inset 1px 1px 1px rgba(255,255,255,0.6);
+    pointer-events: auto; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 10;
   }
+  .map-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 1px 1px 1px rgba(255,255,255,0.8); }
 
-  .map-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
-  }
-
-  /* Envelope Flaps */
+  /* Realistic Envelope Flaps */
   .pocket-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0;
+    position: absolute; bottom: 0; left: 0; width: 0; height: 0;
     border-left: calc(min(92vw, 540px) / 2) solid transparent;
     border-right: calc(min(92vw, 540px) / 2) solid transparent;
-    border-bottom: calc(min(65vh, 370px) * 0.58) solid #561313;
-    z-index: 4;
+    border-bottom: calc(min(65vh, 370px) * 0.58) solid #631717;
+    z-index: 4; filter: drop-shadow(0 -3px 4px rgba(0,0,0,0.2));
   }
 
   .pocket-side {
-    position: absolute;
-    top: 0;
-    width: 0;
-    height: 0;
+    position: absolute; top: 0; width: 0; height: 0;
     border-top: calc(min(65vh, 370px) / 2) solid transparent;
     border-bottom: calc(min(65vh, 370px) / 2) solid transparent;
     z-index: 3;
   }
-  .pocket-left {
-    left: 0;
-    border-left: calc(min(92vw, 540px) * 0.54) solid #661818;
-  }
-  .pocket-right {
-    right: 0;
-    border-right: calc(min(92vw, 540px) * 0.54) solid #661818;
-  }
+  .pocket-left { left: 0; border-left: calc(min(92vw, 540px) * 0.54) solid #731b1b; filter: drop-shadow(3px 0 4px rgba(0,0,0,0.15)); }
+  .pocket-right { right: 0; border-right: calc(min(92vw, 540px) * 0.54) solid #561111; filter: drop-shadow(-3px 0 4px rgba(0,0,0,0.25)); }
 
   .flap-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
+    position: absolute; top: 0; left: 0; width: 0; height: 0;
     border-left: calc(min(92vw, 540px) / 2) solid transparent;
     border-right: calc(min(92vw, 540px) / 2) solid transparent;
-    border-top: calc(min(65vh, 370px) * 0.58) solid #731b1b;
-    transform-origin: top;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 5;
-    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5));
+    border-top: calc(min(65vh, 370px) * 0.58) solid #7a1d1d;
+    transform-origin: top; transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
   }
 
+  /* 3D Wax Seal */
   .wax-seal {
-    position: absolute;
-    bottom: -32px;
-    left: -32px;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #991c1c 40%, #520808 100%);
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 6px 14px rgba(0,0,0,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #e6ca65;
-    font-family: 'Cinzel', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: 2px dashed rgba(230, 202, 101, 0.6);
-    transition: opacity 0.4s;
+    position: absolute; bottom: -32px; left: -32px; width: 64px; height: 64px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #b32424 0%, #7a1010 40%, #3d0404 100%);
+    box-shadow: inset 0 -4px 6px rgba(0,0,0,0.5), inset 0 4px 6px rgba(255,255,255,0.3), 0 6px 10px rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    color: #e6ca65; font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700;
+    border: 1px solid #4a0808; transition: opacity 0.4s;
+    text-shadow: -1px -1px 0px rgba(0,0,0,0.6), 1px 1px 0px rgba(255,255,255,0.2);
   }
 
   /* Open State */
-  .stage.open .envelope {
-    transform: translateY(180px);
-  }
-  .stage.open .flap-top {
-    transform: rotateX(180deg);
-    z-index: 1;
-  }
-  .stage.open .wax-seal {
-    opacity: 0;
-  }
+  .stage.open .envelope { transform: translateY(180px); }
+  .stage.open .flap-top { transform: rotateX(180deg); z-index: 1; }
+  .stage.open .wax-seal { opacity: 0; }
   .stage.open .card {
-    transform: translateY(-230px) scale(1.4);
+    transform: translateY(-230px) scale(1.4) rotateX(2deg); 
     z-index: 20;
-    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.6), 0 15px 20px rgba(0, 0, 0, 0.4);
     pointer-events: auto;
   }
 
   .hint {
-    position: absolute;
-    bottom: -45px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #d4af37;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: opacity 0.4s;
+    position: absolute; bottom: -55px; left: 50%; transform: translateX(-50%);
+    color: rgba(212, 175, 55, 0.7); font-size: 0.75rem; letter-spacing: 2px;
+    text-transform: uppercase; transition: opacity 0.4s;
   }
-  .stage.open .hint {
-    opacity: 0;
-  }
+  .stage.open .hint { opacity: 0; }
 </style>
 </head>
 <body>
 
-<div class="moon-glow" aria-hidden="true"></div>
-<div class="starfield" id="starfield" aria-hidden="true"></div>
 <div class="bokeh-container" id="bokeh"></div>
 
-<!-- Flying Birds (Fixed visibility) -->
 <div class="bird-container bird-1">
   <svg class="bird-svg" viewBox="0 0 50 40">
     <path class="left-wing" d="M25 20 Q10 0 0 10 Q10 25 25 22" fill="#fffdfa"/>
@@ -415,67 +246,40 @@
 </div>
 
 <script>
-  // Soft ambient bokeh
   const bokehContainer = document.getElementById('bokeh');
-  for (let i = 0; i < 22; i++) {
+  for (let i = 0; i < 25; i++) {
     const b = document.createElement('div');
     b.className = 'bokeh';
-    const size = Math.random() * 90 + 30;
-    b.style.width = size + 'px';
-    b.style.height = size + 'px';
-    b.style.top = Math.random() * 100 + 'vh';
-    b.style.left = Math.random() * 100 + 'vw';
+    const size = Math.random() * 80 + 20;
+    b.style.width = size + 'px'; b.style.height = size + 'px';
+    b.style.top = Math.random() * 100 + 'vh'; b.style.left = Math.random() * 100 + 'vw';
     b.style.animationDelay = (Math.random() * 8) + 's';
     bokehContainer.appendChild(b);
   }
 
-  // Tiny stars add depth behind the invitation.
-  const starfield = document.getElementById('starfield');
-  for (let i = 0; i < 58; i++) {
-    const star = document.createElement('span');
-    star.className = 'star';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 100 + '%';
-    star.style.setProperty('--twinkle-duration', (2.5 + Math.random() * 4) + 's');
-    star.style.animationDelay = (Math.random() * 5) + 's';
-    starfield.appendChild(star);
-  }
-
-  // Synthesized Harp/Celesta Glissando (Web Audio API)
   function playWeddingChimes() {
     try {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       const ctx = new AudioCtx();
       const notes = [392.00, 493.88, 587.33, 739.99, 783.99, 987.77, 1174.66, 1479.98]; 
       notes.forEach((freq, idx) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
-
+        const osc = ctx.createOscillator(); const gain = ctx.createGain();
+        osc.type = 'sine'; osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
         gain.gain.setValueAtTime(0, ctx.currentTime + idx * 0.08);
-        gain.gain.linearRampToValueAtTime(0.16, ctx.currentTime + idx * 0.08 + 0.04);
+        gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + idx * 0.08 + 0.04);
         gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + idx * 0.08 + 2.4);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.start(ctx.currentTime + idx * 0.08);
-        osc.stop(ctx.currentTime + idx * 0.08 + 2.5);
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + idx * 0.08); osc.stop(ctx.currentTime + idx * 0.08 + 2.5);
       });
-    } catch (e) {
-      console.log('Audio disabled:', e);
-    }
+    } catch (e) {}
   }
 
   let isOpen = false;
   function openEnvelope(e) {
-    if (isOpen) return;
-    isOpen = true;
+    if (isOpen) return; isOpen = true;
     playWeddingChimes();
     document.getElementById('stage').classList.add('open');
   }
 </script>
-
 </body>
 </html>
