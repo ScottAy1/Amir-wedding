@@ -2,12 +2,13 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mariage Amir & Lylia</title>
 
 <!-- Instagram / Social Media Preview Tags -->
 <meta property="og:title" content="Mariage Amir & Lylia" />
 <meta property="og:description" content="Vous êtes conviés à la célébration de notre mariage le Vendredi 29 Janvier 2027." />
+<!-- Replace the content below with a direct .jpg link to the image you saved -->
 <meta property="og:image" content="image1.jpg" />
 <meta property="og:url" content="https://YOUR-DOMAIN.com" />
 <meta property="og:type" content="website" />
@@ -15,9 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --env-w: min(85vw, 450px);
-    --env-h: min(55vh, 300px);
-    --paper: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    var(--env-w): min(85vw, 450px);
+    var(--env-h): min(55vh, 300px);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,84 +68,35 @@
 
   .stage {
     position: relative;
-    width: var(--env-w);
-    height: var(--env-h);
+    width: min(85vw, 450px);
+    height: min(55vh, 300px);
     z-index: 10;
   }
 
   .envelope {
     position: relative; width: 100%; height: 100%; cursor: pointer;
     transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.7));
+    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.7)); 
   }
-
-  /* shared fine paper-grain overlay, tinted per surface via mix-blend-mode */
-  .grain { position: absolute; inset: 0; background-image: var(--paper); background-size: 140px 140px; opacity: 0.5; mix-blend-mode: overlay; pointer-events: none; }
-  .grain.dark { opacity: 0.35; mix-blend-mode: soft-light; }
 
   .envelope-back {
-    position: absolute; inset: 0; overflow: hidden;
-    background:
-      linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.15) 100%),
-      repeating-linear-gradient(115deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 3px),
-      linear-gradient(135deg, #5c1616 0%, #3a0808 100%);
-    border-radius: 4px;
-    box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
-  }
-
-  /* --- realistic envelope liner (revealed on the underside of the flap) --- */
-  .flap-top {
-    position: absolute; top: 0; left: 0; width: 100%; height: 58%;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    background:
-      repeating-linear-gradient(115deg, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 1px, transparent 1px, transparent 3px),
-      linear-gradient(160deg, #8a2323 0%, #7a1d1d 55%, #601515 100%);
-    transform-style: preserve-3d;
-    transform-origin: top; transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 5; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.45));
-    overflow: hidden;
-  }
-  .flap-liner {
     position: absolute; inset: 0;
-    backface-visibility: hidden; transform: rotateX(180deg);
-    background:
-      repeating-linear-gradient(45deg, rgba(212,175,55,0.16) 0 2px, transparent 2px 14px),
-      repeating-linear-gradient(-45deg, rgba(212,175,55,0.16) 0 2px, transparent 2px 14px),
-      linear-gradient(160deg, #f7ecd0 0%, #efe0b8 100%);
-    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6%;
-  }
-  .flap-liner::after {
-    content: 'A & L'; font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 3px;
-    color: rgba(122, 29, 29, 0.35);
+    background: linear-gradient(135deg, #5c1616 0%, #3a0808 100%);
+    border-radius: 4px;
   }
 
   .card {
     position: absolute; top: 15px; left: 4%; width: 92%; height: 90%;
-    background:
-      linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
-      url('image_27da09.jpg') center/cover no-repeat;
-    background-blend-mode: multiply, normal;
-    background-color: #fffcf6;
+    background: url('image_27da09.jpg') center/cover no-repeat;
+    background-color: #fffcf8;
     border-radius: 2px;
     padding: 25px 15px;
     text-align: center;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.7) inset,
-      0 -1px 0 rgba(0,0,0,0.05) inset,
-      0 4px 6px rgba(0,0,0,0.3);
-    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     z-index: 2;
     display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 15px;
     transition: transform 1.3s cubic-bezier(0.25, 1, 0.3, 1), z-index 0.2s 0.6s, box-shadow 1.3s;
     pointer-events: none;
-    overflow: hidden;
-  }
-  .card::before { content: ''; position: absolute; inset: 0; background-image: var(--paper); background-size: 160px 160px; opacity: 0.10; mix-blend-mode: multiply; }
-  /* soft fold crease, as if the card once lived folded in the envelope */
-  .card::after {
-    content: ''; position: absolute; left: 6%; right: 6%; top: 50%; height: 1px;
-    background: linear-gradient(to right, transparent, rgba(0,0,0,0.10) 20%, rgba(0,0,0,0.14) 50%, rgba(0,0,0,0.10) 80%, transparent);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.5);
   }
 
   .names {
@@ -158,18 +109,16 @@
     line-height: 1.2;
     filter: drop-shadow(1px 2px 1px rgba(0,0,0,0.15));
     margin-bottom: 5px;
-    position: relative;
   }
 
   .intro, .details {
     color: #4a3e35;
     text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.9);
-    position: relative;
   }
 
   .intro { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
   .details { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; line-height: 1.6; }
-
+  
   .details .date {
     font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700;
     color: #611111; margin-top: 6px; display: block; letter-spacing: 1px;
@@ -186,55 +135,39 @@
   .map-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 1px 1px 1px rgba(255,255,255,0.8); }
 
   .pocket-bottom {
-    position: absolute; bottom: 0; left: 0; width: 100%; height: 58%;
-    clip-path: polygon(0 100%, 50% 0, 100% 100%);
-    background:
-      repeating-linear-gradient(115deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 3px),
-      linear-gradient(0deg, #631717 0%, #551313 100%);
-    z-index: 4; filter: drop-shadow(0 -3px 4px rgba(0,0,0,0.25));
+    position: absolute; bottom: 0; left: 0; width: 0; height: 0;
+    border-left: calc(min(85vw, 450px) / 2) solid transparent;
+    border-right: calc(min(85vw, 450px) / 2) solid transparent;
+    border-bottom: calc(min(55vh, 300px) * 0.58) solid #631717;
+    z-index: 4; filter: drop-shadow(0 -3px 4px rgba(0,0,0,0.2));
   }
 
-  .pocket-side { position: absolute; top: 0; width: 54%; height: 100%; z-index: 3; }
-  .pocket-left {
-    left: 0; clip-path: polygon(0 0, 100% 50%, 0 100%);
-    background:
-      repeating-linear-gradient(115deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 3px),
-      linear-gradient(90deg, #7a2020 0%, #611515 100%);
-    filter: drop-shadow(3px 0 4px rgba(0,0,0,0.18));
+  .pocket-side {
+    position: absolute; top: 0; width: 0; height: 0;
+    border-top: calc(min(55vh, 300px) / 2) solid transparent;
+    border-bottom: calc(min(55vh, 300px) / 2) solid transparent;
+    z-index: 3;
   }
-  .pocket-right {
-    right: 0; clip-path: polygon(100% 0, 0 50%, 100% 100%);
-    background:
-      repeating-linear-gradient(65deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 3px),
-      linear-gradient(-90deg, #5c1414 0%, #440d0d 100%);
-    filter: drop-shadow(-3px 0 4px rgba(0,0,0,0.28));
+  .pocket-left { left: 0; border-left: calc(min(85vw, 450px) * 0.54) solid #731b1b; filter: drop-shadow(3px 0 4px rgba(0,0,0,0.15)); }
+  .pocket-right { right: 0; border-right: calc(min(85vw, 450px) * 0.54) solid #561111; filter: drop-shadow(-3px 0 4px rgba(0,0,0,0.25)); }
+
+  .flap-top {
+    position: absolute; top: 0; left: 0; width: 0; height: 0;
+    border-left: calc(min(85vw, 450px) / 2) solid transparent;
+    border-right: calc(min(85vw, 450px) / 2) solid transparent;
+    border-top: calc(min(55vh, 300px) * 0.58) solid #7a1d1d;
+    transform-origin: top; transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
   }
 
   .wax-seal {
-    position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%) rotate(-4deg);
-    width: 62px; height: 58px;
-    border-radius: 46% 54% 52% 48% / 50% 46% 54% 50%;
-    background: radial-gradient(circle at 32% 28%, #c22a2a 0%, #8a1717 42%, #52090c 100%);
-    box-shadow:
-      inset 0 -5px 7px rgba(0,0,0,0.55),
-      inset 0 5px 6px rgba(255,255,255,0.25),
-      inset 3px 3px 5px rgba(0,0,0,0.3),
-      0 7px 10px rgba(0,0,0,0.5);
+    position: absolute; bottom: -32px; left: -32px; width: 64px; height: 64px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #b32424 0%, #7a1010 40%, #3d0404 100%);
+    box-shadow: inset 0 -4px 6px rgba(0,0,0,0.5), inset 0 4px 6px rgba(255,255,255,0.3), 0 6px 10px rgba(0,0,0,0.5);
     display: flex; align-items: center; justify-content: center;
-    color: #e6ca65; font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
-    border: 1px solid #3d0505; transition: opacity 0.4s;
-    text-shadow: -1px -1px 0px rgba(0,0,0,0.6), 1px 1px 0px rgba(255,255,255,0.15);
-  }
-  .wax-seal::before {
-    content: ''; position: absolute; inset: -2px; border-radius: inherit;
-    background-image: var(--paper); background-size: 60px 60px; opacity: 0.25; mix-blend-mode: overlay;
-  }
-  /* small wax drip for extra realism */
-  .wax-seal::after {
-    content: ''; position: absolute; bottom: -9px; left: 41%; width: 10px; height: 13px;
-    background: radial-gradient(circle at 35% 20%, #8a1717, #52090c 80%);
-    border-radius: 40% 60% 55% 45% / 60% 55% 45% 40%;
-    box-shadow: inset -1px -1px 2px rgba(0,0,0,0.5);
+    color: #e6ca65; font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700;
+    border: 1px solid #4a0808; transition: opacity 0.4s;
+    text-shadow: -1px -1px 0px rgba(0,0,0,0.6), 1px 1px 0px rgba(255,255,255,0.2);
   }
 
   /* SMALLER OPEN STATE */
@@ -242,11 +175,10 @@
   .stage.open .flap-top { transform: rotateX(180deg); z-index: 1; }
   .stage.open .wax-seal { opacity: 0; }
   .stage.open .card {
-    transform: translateY(-210px) scale(1.35) rotateX(2deg);
+    /* Reduced scale from 1.6 to 1.35 */
+    transform: translateY(-210px) scale(1.35) rotateX(2deg); 
     z-index: 20;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.7) inset,
-      0 40px 60px rgba(0, 0, 0, 0.6), 0 15px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.6), 0 15px 20px rgba(0, 0, 0, 0.4);
     pointer-events: auto;
   }
 
@@ -286,7 +218,7 @@
 
 <div class="stage" id="stage" onclick="openEnvelope(event)">
   <div class="envelope">
-    <div class="envelope-back"><div class="grain dark"></div></div>
+    <div class="envelope-back"></div>
 
     <div class="card" id="card">
       <div class="intro">Entourés de l'amour de leurs familles</div>
@@ -300,13 +232,11 @@
       </a>
     </div>
 
-    <div class="pocket-left pocket-side"><div class="grain"></div></div>
-    <div class="pocket-right pocket-side"><div class="grain"></div></div>
-    <div class="pocket-bottom"><div class="grain"></div></div>
+    <div class="pocket-left pocket-side"></div>
+    <div class="pocket-right pocket-side"></div>
+    <div class="pocket-bottom"></div>
 
     <div class="flap-top">
-      <div class="grain"></div>
-      <div class="flap-liner"></div>
       <div class="wax-seal">A & L</div>
     </div>
   </div>
@@ -329,7 +259,7 @@
     try {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       const ctx = new AudioCtx();
-      const notes = [392.00, 493.88, 587.33, 739.99, 783.99, 987.77, 1174.66, 1479.98];
+      const notes = [392.00, 493.88, 587.33, 739.99, 783.99, 987.77, 1174.66, 1479.98]; 
       notes.forEach((freq, idx) => {
         const osc = ctx.createOscillator(); const gain = ctx.createGain();
         osc.type = 'sine'; osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
